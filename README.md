@@ -66,6 +66,44 @@ Open your web browser and navigate to:
 http://localhost:5000
 ```
 
+## 🐳 Docker Deployment
+
+### Using Dockerfile
+
+1. **Build the Docker image**:
+   ```bash
+   docker build -t catdog-vision-ai .
+   ```
+
+2. **Run the container**:
+   ```bash
+   docker run -d -p 5000:5000 --name catdog-ai catdog-vision-ai
+   ```
+
+3. **Access the application**:
+   ```
+   http://localhost:5000
+   ```
+
+### Using Docker Compose (Recommended)
+
+1. **Start the application**:
+   ```bash
+   docker-compose up -d
+   ```
+
+2. **View logs**:
+   ```bash
+   docker-compose logs -f
+   ```
+
+3. **Stop the application**:
+   ```bash
+   docker-compose down
+   ```
+
+**Note**: Make sure you have trained the model (`catdog_model.h5`) before building the Docker image, as the model file is required for the application to run.
+
 ## 🎨 Usage
 
 1. **Upload an Image**: 
@@ -90,6 +128,9 @@ catdog-ai-deploy/
 ├── main.py                 # Main entry point
 ├── pyproject.toml          # Project dependencies
 ├── catdog_model.h5         # Trained model (generated after training)
+├── Dockerfile              # Docker container configuration
+├── docker-compose.yml      # Docker Compose configuration
+├── .dockerignore           # Files to exclude from Docker build
 ├── cats_and_dogs_filtered/ # Dataset (downloaded automatically)
 └── static/
     ├── index.html          # Frontend HTML

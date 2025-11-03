@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  catdog-ai:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: catdog-vision-ai
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+    environment:
+      - FLASK_ENV=production
+      - FLASK_APP=app.py
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    volumes:
+      # Optional: Mount model for easy updates without rebuilding
+      - ./catdog_model.h5:/app/catdog_model.h5:ro
+

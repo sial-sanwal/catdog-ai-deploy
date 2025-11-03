@@ -16,7 +16,7 @@ import numpy as np
 # Constants
 IMG_SIZE = 150
 BATCH_SIZE = 32
-EPOCHS = 15
+EPOCHS = 3
 DATA_DIR = "cats_and_dogs_filtered"
 MODEL_PATH = "catdog_model.h5"
 

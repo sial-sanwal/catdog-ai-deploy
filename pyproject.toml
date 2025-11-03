@@ -1,0 +1,14 @@
+[project]
+name = "catdog-ai-deploy"
+version = "0.1.0"
+description = "Cats vs Dogs image classifier using CNN"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "tensorflow>=2.15.0",
+    "flask>=3.0.0",
+    "flask-cors>=4.0.0",
+    "numpy>=1.24.0",
+    "pillow>=10.0.0",
+    "opencv-python>=4.8.0",
+]
